@@ -1,0 +1,61 @@
+ create database saeed;
+CREATE TABLE Author (
+    AuthorID INT AUTO_INCREMENT PRIMARY KEY,
+    FirstName VARCHAR(50) NOT NULL,
+    LastName VARCHAR(50) NOT NULL,
+    BirthDate DATE
+);
+CREATE TABLE Books (
+    BookID INT AUTO_INCREMENT PRIMARY KEY,
+    Title VARCHAR(100) NOT NULL,
+    Genre VARCHAR(50),
+    PublishedYear YEAR,
+    AuthorID INT,
+    FOREIGN KEY (AuthorID) REFERENCES Author(AuthorID)
+);
+INSERT INTO Author (FirstName, LastName, BirthDate) VALUES
+('John', 'Doe', '1970-01-15'),
+('Jane', 'Smith', '1982-03-22'),
+('Robert', 'Brown', '1965-07-30'),
+('Emily', 'Jones', '1990-05-14'),
+('Michael', 'Williams', '1985-11-05'),
+('Linda', 'Johnson', '1978-12-19'),
+('David', 'Lee', '1963-06-12'),
+('Sarah', 'Davis', '1972-09-27'),
+('James', 'Wilson', '1980-02-01'),
+('Jessica', 'Taylor', '1992-08-08'),
+('William', 'Miller', '1968-04-10'),
+('Laura', 'Anderson', '1989-10-30'),
+('Richard', 'Thomas', '1958-11-11'),
+('Karen', 'Jackson', '1974-03-23'),
+('Charles', 'White', '1983-07-17'),
+('Nancy', 'Harris', '1967-12-09'),
+('Steven', 'Martin', '1975-04-22'),
+('Patricia', 'Clark', '1988-06-19'),
+('Daniel', 'Lewis', '1960-01-05'),
+('Betty', 'Walker', '1979-09-14');
+
+INSERT INTO Books (Title, Genre, PublishedYear, AuthorID) VALUES
+('The Great Adventure', 'Fiction', 2010, 1),
+('Mystery of the Old House', 'Mystery', 2015, 2),
+('Tech Revolution', 'Science', 2020, 3),
+('Love and Betrayal', 'Romance', 2018, 4),
+('History Revisited', 'History', 2012, 5),
+('Cooking with Passion', 'Cookbook', 2021, 6),
+('The Lost Kingdom', 'Fantasy', 2017, 7),
+('Health for Life', 'Health', 2019, 8),
+('Secrets of the Deep', 'Adventure', 2022, 9),
+('The Silent Guardian', 'Thriller', 2016, 10),
+('Science Uncovered', 'Non-fiction', 2014, 11),
+('Journey Through Time', 'Historical Fiction', 2011, 12),
+('Beyond the Horizon', 'Science Fiction', 2023, 13),
+('The Family Album', 'Biography', 2016, 14),
+('Legends of the Night', 'Fantasy', 2019, 15),
+('The Art of War', 'Strategy', 2015, 16),
+('A Day in Paris', 'Travel', 2020, 17),
+('Deep Blue Sea', 'Adventure', 2021, 18),
+('Reflections', 'Poetry', 2018, 19),
+('Into the Wild', 'Adventure', 2017, 20);
+
+select * from books where PublishedYear <2017;
+select * from authors where LastName like 'a%';
